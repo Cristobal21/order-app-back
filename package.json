@@ -1,0 +1,27 @@
+{
+	"name": "pedidoproject-backend",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "nodemon index.js",
+		"start": "node index.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"dotenv": "^16.0.3",
+		"express": "^4.18.2",
+		"express-validator": "^6.14.2",
+		"mongodb": "^5.1.0",
+		"mongoose": "^6.8.2"
+	},
+	"devDependencies": {
+		"standard": "^17.0.0"
+	},
+	"eslintConfig": {
+		"extends": "node_modules/standard/eslintrc.json"
+	}
+}
