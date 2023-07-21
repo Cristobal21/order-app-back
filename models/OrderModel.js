@@ -1,6 +1,10 @@
 const { Schema, model } = require('mongoose')
 
 const OrderSchema = Schema({
+  activo: {
+    type: Boolean,
+    default: true
+  },
   producto: {
     type: String,
     require: true

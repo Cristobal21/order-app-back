@@ -24,11 +24,21 @@ const createEvent = async (req, res = response) => {
 }
 
 const getEvent = async (req, res = response) => {
-  const pedidos = await Pedido.find()// Método de mongo
+  const pedidos = await Pedido.find({ activo: true })// Método de mongo
 
   res.json({
     ok: true,
-    msg: 'Obtener Pedidos',
+    msg: 'Obtener Pedidos en True',
+    pedidos
+  })
+}
+
+const getEventFalse = async (req, res = response) => {
+  const pedidos = await Pedido.find({ activo: false })// Método de mongo
+
+  res.json({
+    ok: true,
+    msg: 'Obtener Pedidos en False',
     pedidos
   })
 }
@@ -135,5 +145,6 @@ module.exports = {
   updateEvent,
   deleteEvent,
   getEventById,
-  deleteAllEvents
+  deleteAllEvents,
+  getEventFalse
 }

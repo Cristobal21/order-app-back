@@ -20,6 +20,7 @@ app.use(express.json())
 
 //* * Rutas */
 app.use('/api/admin', require('./routes/orders'))
+app.use('/api/adminSent', require('./routes/orders'))
 
 //* * Escuchar peticiones */
 app.listen(process.env.PORT, () => {

@@ -8,10 +8,14 @@ const {
   updateEvent,
   getEvent,
   getEventById,
-  deleteAllEvents
+  deleteAllEvents,
+  getEventFalse
 } = require('../controllers/admin')
 
 const router = Router()
+
+// const sent = false
+// const stringSent = sent.toString()
 
 router.post(
   '/',
@@ -28,6 +32,9 @@ router.post(
 )
 
 router.get('/', getEvent)
+
+// router.get(`/:${stringSent}`, getEventFalse)
+router.get('/adminSent', getEventFalse)
 
 router.get('/:id', getEventById)
 
