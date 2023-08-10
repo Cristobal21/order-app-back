@@ -1,8 +1,7 @@
 const { response } = require('express')
-// const { ObjectId } = require('mongodb')
 const { mongoose } = require('mongoose')
-// const { default: mongoose } = require('mongoose')
 const Pedido = require('../models/OrderModel')
+const Eliminado = require('../models/DeleteOrderModel')
 
 const createEvent = async (req, res = response) => {
   try {
@@ -106,12 +105,14 @@ const deleteEvent = async (req, res = response) => {
       })
     }
 
+    const newPedidoEliminado = await Eliminado.insertMany(pedido)
     const pedidoEliminado = await Pedido.deleteOne(pedido)
 
     res.json({
       ok: true,
       msg: 'Pedido eliminado',
-      evento: pedidoEliminado
+      evento: pedidoEliminado,
+      new: newPedidoEliminado
     })
   } catch (error) {
     console.log(error)
