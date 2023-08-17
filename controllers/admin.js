@@ -125,7 +125,9 @@ const deleteEvent = async (req, res = response) => {
 
 const deleteAllEvents = async (req, res = response) => {
   try {
-    await Pedido.deleteMany({})
+    const pedidos = await Pedido.find({ activo: false })
+    await Eliminado.insertMany(pedidos)
+    await Pedido.deleteMany({ activo: false })
 
     res.json({
       ok: true,
